@@ -30,7 +30,10 @@ public class Slime extends Entity{
     }
 
     public void setElement(String element){
-        this.element = element;
+        switch (element){
+            case "fire", "water", "earth", "wind", "none"-> {this.element = element;}
+            default -> throw new InvalidMonsterException("The element "+ element +" does not exist in our game gng"); 
+        }
     }
 
 }
