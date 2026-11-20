@@ -1,5 +1,7 @@
 package entites;
 
+import exceptions.InvalidMonsterException;
+
 public class Slime extends Entity{
     /*
     Summary:
@@ -7,9 +9,13 @@ public class Slime extends Entity{
     HP = 100
     ATTACK = 20
      */
-    String element;
+    private String element;
     Slime(String element){
         super(100,20);
+        switch (element){
+            case "fire", "water", "earth", "wind", "none"-> {this.element = element;}
+            default -> throw new InvalidMonsterException("The element "+ element +" does not exist in our game gng"); 
+        }
     }
 
 }
