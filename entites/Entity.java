@@ -13,7 +13,7 @@ public class Entity {
     }
 
     public void setAttackPoints(int attackpoints){
-        this.healthpoints = attackpoints;
+        this.attackpoints = attackpoints;
     }
 
     public int getHealthPoints(){
