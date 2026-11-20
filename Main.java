@@ -1,7 +1,7 @@
-import entites.MonsterFactory;
-import entites.Entity;
-import entites.Player;
-import entites.Slime;
+import entities.MonsterFactory;
+import entities.Entity;
+import entities.Player;
+import entities.Slime;
 import java.util.Scanner;
 
 public class Main {
