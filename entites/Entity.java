@@ -1,6 +1,16 @@
 package entites;
 
 public abstract class Entity {
+    /*
+    Summary:
+    This is the base class for everything in the game that has HP and attack (the Player and all monsters).
+    You can't create an Entity directly, only one of its subclasses.
+
+    Every subclass has to implement repr(), which prints the entity's stats.
+
+    The constructor is package-private, so code outside the entites package can't call
+    new Slime(...) directly. Use MonsterFactory to create monsters instead.
+     */
     private int healthpoints;
     private int attackpoints;
 
