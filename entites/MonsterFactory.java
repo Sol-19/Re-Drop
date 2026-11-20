@@ -5,7 +5,7 @@ import exceptions.InvalidMonsterException;
 public class MonsterFactory{
 
     Entity newentity;
-    MonsterFactory(String element, String entity) throws InvalidMonsterException{
+    public MonsterFactory(String element, String entity) throws InvalidMonsterException{
         switch (entity){
             case "slime":
                 newentity = new Slime(element);
