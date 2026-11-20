@@ -18,4 +18,12 @@ public class Slime extends Entity{
         }
     }
 
+    public String getElement(){
+        return this.element;
+    }
+
+    public void setElement(String element){
+        this.element = element;
+    }
+
 }
