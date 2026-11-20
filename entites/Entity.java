@@ -1,8 +1,11 @@
 package entites;
 
-public class Entity {
+public abstract class Entity {
     private int healthpoints;
     private int attackpoints;
+
+    public abstract void repr();
+    
     Entity(int health, int attack){
         this.healthpoints = health;
         this.attackpoints = attack;

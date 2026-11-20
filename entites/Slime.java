@@ -18,6 +18,13 @@ public class Slime extends Entity{
         }
     }
 
+    @Override 
+    public void repr(){
+        System.out.println("HP: "+this.getHealthPoints());
+        System.out.println("Attack: "+this.getAttackPoints());
+        System.out.println("Element: "+this.getElement());
+    }
+
     public String getElement(){
         return this.element;
     }

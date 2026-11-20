@@ -10,4 +10,10 @@ public class Player extends Entity{
     public Player(){
         super(100,10);
     }
+
+    @Override 
+    public void repr(){
+        System.out.println("HP: "+this.getHealthPoints());
+        System.out.println("Attack: "+this.getAttackPoints());
+    }
 }
