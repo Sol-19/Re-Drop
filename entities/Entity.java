@@ -1,4 +1,4 @@
-package entites;
+package entities;
 
 public abstract class Entity {
     /*
@@ -8,7 +8,7 @@ public abstract class Entity {
 
     Every subclass has to implement repr(), which prints the entity's stats.
 
-    The constructor is package-private, so code outside the entites package can't call
+    The constructor is package-private, so code outside the entities package can't call
     new Slime(...) directly. Use MonsterFactory to create monsters instead.
      */
     private int healthpoints;
