@@ -1,6 +1,12 @@
 package entities;
 
 import exceptions.InvalidMonsterException;
+import variants.slime.EarthSlime;
+import variants.slime.FireSlime;
+import variants.slime.NormalSlime;
+import variants.slime.SlimeVariant;
+import variants.slime.WaterSlime;
+import variants.slime.WindSlime;
 
 public class MonsterFactory{
     /*
@@ -24,16 +30,7 @@ public class MonsterFactory{
     public MonsterFactory(String element, String entity) throws InvalidMonsterException{
         switch (entity){
             case "slime":
-                newentity = new Slime(element);
-                break;
-            case "entity2":
-                newentity = new Slime(element);
-                break;
-            case "entity3":
-                newentity = new Slime(element);
-                break;
-            case "entity4":
-                newentity = new Slime(element);
+                newentity = new Slime(slimeVariant(element));
                 break;
             default:
                 throw new InvalidMonsterException("The entity "+entity+" does not exist in our game gng");
@@ -43,4 +40,16 @@ public class MonsterFactory{
     public Entity getEntity(){
         return this.newentity;
     }
+
+    public static SlimeVariant slimeVariant(String element) {
+        return switch (element) {
+            case "fire" -> new FireSlime();
+            case "water" -> new WaterSlime();
+            case "earth" -> new EarthSlime();
+            case "wind" -> new WindSlime();
+            case "none", "normal" -> new NormalSlime();
+            default -> throw new InvalidMonsterException("The element " + element + " does not exist in our game gng");
+        };
+    }
+
 }

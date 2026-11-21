@@ -2,6 +2,8 @@ import entities.MonsterFactory;
 import entities.Entity;
 import entities.Player;
 import entities.Slime;
+import exceptions.InvalidMonsterException;
+
 import java.util.Scanner;
 
 public class Main {
@@ -22,23 +24,17 @@ public class Main {
         userEdit(slime01);
     }
 
-    public static void userEdit(Entity slime01){
-        String userinput;
-        while(true){
-        System.out.print("Change element: ");
-        userinput = scanner.nextLine().trim().toLowerCase();
-        switch (userinput){
-            case "fire", "water", "earth", "wind" -> {
-                ((Slime)slime01).setElement(userinput);
+    public static void userEdit(Entity slime01) {
+        while (true) {
+            System.out.print("Change element: ");
+            String userinput = scanner.nextLine().trim().toLowerCase();
+            try {
+                ((Slime) slime01).setVariant(MonsterFactory.slimeVariant(userinput));
+            } catch (InvalidMonsterException e) {
+                System.out.println(e.getMessage());
+                continue;
             }
-            default->{
-                slime01.setAttackPoints(10000000);
-                slime01.setHealthPoints(10000000);
-                ((Slime)slime01).setElement("none");
-            }
-        }
-        slime01.repr();
-
+            slime01.repr();
         }
     }
 }

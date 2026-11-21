@@ -1,39 +1,30 @@
 package entities;
 
-import exceptions.InvalidMonsterException;
+import variants.Element;
+import variants.slime.SlimeVariant;
 
-public class Slime extends Entity{
-    /*
-    Summary:
-    This is a class for a slime monster, below are the default stats for the Slime Entity
-    HP = 100
-    ATTACK = 20
-     */
-    private String element;
-    Slime(String element){
-        super(100,20);
-        switch (element){
-            case "fire", "water", "earth", "wind", "none"-> {this.element = element;}
-            default -> throw new InvalidMonsterException("The element "+ element +" does not exist in our game gng"); 
-        }
+public class Slime extends Entity {
+    private SlimeVariant variant;
+
+    Slime(SlimeVariant variant) {
+        super(variant.baseHp(), variant.baseAttack());
+        this.variant = variant;
     }
 
-    @Override 
-    public void repr(){
-        System.out.println("HP: "+this.getHealthPoints());
-        System.out.println("Attack: "+this.getAttackPoints());
-        System.out.println("Element: "+this.getElement());
+    public void setVariant(SlimeVariant variant) {
+        this.variant = variant;
+        this.setAttackPoints(variant.baseAttack());
     }
 
-    public String getElement(){
-        return this.element;
+    @Override
+    public void repr() {
+        System.out.println("Name: " + variant.name());
+        System.out.println("HP: " + this.getHealthPoints());
+        System.out.println("Attack: " + this.getAttackPoints());
+        System.out.println("Element: " + this.getElement());
     }
 
-    public void setElement(String element){
-        switch (element){
-            case "fire", "water", "earth", "wind", "none"-> {this.element = element;}
-            default -> throw new InvalidMonsterException("The element "+ element +" does not exist in our game gng"); 
-        }
+    public Element getElement() {
+        return variant.element();
     }
-
 }
